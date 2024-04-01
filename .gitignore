@@ -1,5 +1,15 @@
+core.Microsoft*
+core.mongo*
+core.python*
 .venv
 env.py
 .python-version
 .DS_Store
 __pycache__/
+*.py[cod]
+node_modules/
+.github/
+cloudinary_python.txt
+db.sqlite3
+
+
