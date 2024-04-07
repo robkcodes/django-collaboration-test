@@ -2,4 +2,6 @@
 
 ## Project Goals
 
+## Scope
+
 ## User Stories
