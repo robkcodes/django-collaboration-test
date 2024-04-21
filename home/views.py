@@ -6,4 +6,4 @@ def home_page(request):
     """
     Returns Hello Message
     """
-    return HttpResponse("Hello, Homepage!")
+    return render(request, "home/index.html")
