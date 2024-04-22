@@ -1,315 +1,162 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=fallback");
-/* Global */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+body {
+  background-color: #F9FAFC;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.brand {
+  font-family: Lato, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #4A4A4F;
 }
 
-ul {
-  list-style-type: none;
+.red-o {
+  color: #E84610;
 }
 
-hr {
-  color: var(--bs-primary);
-  opacity: 0.5;
+.thin {
+  font-weight: 300;
 }
 
-h2, h3, h4 {
+.light-bg {
+  background-color: #fff;
+}
+
+.dark-bg {
+  background-color: #445261;
+}
+
+.main-bg {
+  background-color: #F9FAFC;
+}
+
+.card {
+  border: none;
+  background-color: transparent;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-flash {
+  position: absolute;
+  bottom: 5%;
+  min-width: 30%;
+  left: -2px;
+  background-color: #188181;
+}
+
+.scale {
+  width: 100%;
+  height: auto;
+}
+
+.author {
+  color: white;
+  margin: 4px;
   text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
-.modal-button {
-  outline: none;
+.masthead {
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 33vh;
+  width: 100%;
 }
 
-/* Buttons and Links */
-.btn-icon {
-  color: var(--bs-dark);
+.masthead-text {
+  background-color: #445261;
+  color: white;
+  position: relative;
+}
+
+.masthead-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead-image:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 90%;
+  height: 100%;
+  width: 150%;
+  background: #445261;
+  -webkit-transform: skew(15deg);
+  -moz-transform: skew(15deg);
+  transform: skew(15deg);
+  z-index: 100;
+}
+
+.post-link {
+  text-decoration: none;
+  color: #445261;
+}
+
+.post-link:hover,
+.page-link {
+  color: #E84610;
+}
+
+.post-title {
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.post-subtitle {
+  margin-left: 5%;
+  color: lightgray;
+}
+
+.btn-signup,
+.btn-edit {
+  background-color: #188181;
+  color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+  background-color: #fff;
+  color: #23BBBB;
+}
+
+.link {
+  color: #23BBBB;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+  color: #445261;
+  text-decoration: underline;
+}
+
+.btn-like {
+  color: #E84610;
   border: none;
   background: transparent;
 }
 
-.btn-dark {
-  --bs-btn-hover-color:var(--bs-light);
+.btn-delete {
+  color: #fff;
+  background: #E84610;
 }
 
-.button-link {
-  width: fit-content;
-}
-
-.anchor-icon {
-  padding: 10px 20px;
-}
-
-.link-transform {
-  transition: all 0.15s ease;
-}
-
-.link-transform:hover {
-  color: var(--bs-primary);
-}
-
-.transform-reverse {
-  transition: all 0.15s ease;
-}
-
-.transform-reverse:hover {
-  color: var(--bs-dark);
-}
-
-.transform-dark:hover {
-  color: var(--bs-dark);
-}
-
-/* Navbar */
-.navbar {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-}
-
-.navbar button.navbar-toggler {
-  transition: all 0.15s ease;
-}
-
-/* Referenced the following article to learn about only applying */
-/* hover effect to devices with true hover functionality: */
-/* https://stackoverflow.com/questions/70375065/button-keeps-hover-effect-after-being-clicked-on-mobile-screens */
-@media (hover: hover) {
-  .navbar button.navbar-toggler:hover {
-    color: var(--bs-primary);
-  }
-}
-/* Forms */
-.asteriskField {
-  display: none;
-}
-
-input[type=file] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-input[type=file] + label:before {
-  font-size: 3rem;
-  content: "\f03e";
-  font-family: FontAwesome;
-  color: var(--bs-dark);
+.btn-like:hover,
+.btn-like:active {
+  color: #E84610;
+  background: transparent;
   border: none;
-  transition: all 0.15s ease;
-  padding: 0 1rem;
-  cursor: pointer;
-  display: inline-block;
 }
 
-@media (hover: hover) {
-  input[type=file] + label:hover,
-  input[type=file] + label:hover:before {
-    color: var(--bs-primary);
-  }
-}
-input[type=checkbox i] {
-  accent-color: var(--bs-primary);
+.faded {
+  color: rgb(172, 175, 175);
 }
 
-.custom-file {
-  margin-top: 0.5rem;
-}
-
-/* Referenced this artice to solve problem of file input label overflow: */
-/* https://www.freecodecamp.org/news/how-to-truncate-text-with-css-javascript/ */
-.text-truncate {
-  white-space: normal;
-}
-
-.invalid-feedback {
-  color: var(--bs-light);
-  font-size: 1rem;
-}
-
-/* CSS workaround to fix problem of 'current' image link being displayed in file input */
-/* field of a form, if an image already exists.  Clicking on this link was providing bad */
-/* UX as it would take user away from the site.  Also, if 'placeholder' used, the user was */
-/* directed to a broken link.  I decided to hide this element from view entirely.  Because */
-/* this element is generated from django as a crispy form, it was slightly harder to target */
-/* directly by an id. */
-#div_id_trip_image > div > div.input-group:first-of-type {
-  display: none;
-}
-
-#div_id_trip_image > div > div.input-group > div.input-group-prepend:first-of-type {
-  display: none;
-}
-
-#div_id_profile_image > div > div.input-group:first-of-type {
-  display: none;
-}
-
-#div_id_profile_image > div > div.input-group > div.input-group-prepend:first-of-type {
-  display: none;
-}
-
-#div_id_image > div > div.input-group:first-of-type {
-  display: none;
-}
-
-#div_id_image > div > div.input-group > div.input-group-prepend:first-of-type {
-  display: none;
-}
-
-.input-group {
-  margin-top: 0.5rem;
-  gap: 0.5rem;
-}
-
-/* Header */
-.hero-image {
-  background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url("/static/images/hero/map-pins-hero-1500x1000-compress.webp") left center no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 600px;
-}
-
-.hero-image h2 {
-  text-transform: capitalize;
-}
-
-.map-pin {
-  color: #D8C100;
-}
-
-#hero-text {
-  justify-content: center;
-}
-
-/* Media query for mobile devices from 991px and down pushes text to end of the container */
-@media only screen and (max-width: 991px) {
-  #hero-text {
-    justify-content: end;
-  }
-}
-/* Card Images */
-.img-size-consistent {
-  width: 100%;
-  height: 30vw;
-  object-fit: cover;
-}
-
-/* Media query for mobile devices from 2000px and up decreases height to value 15% of viewport width */
-@media only screen and (min-width: 2000px) {
-  .img-size-consistent {
-    height: 15vw;
-  }
-}
-/* Media query for mobile devices from 991px and down decreases height to value 20% of viewport width */
-@media only screen and (max-width: 991px) {
-  .img-size-consistent {
-    height: 20vw;
-  }
-}
-/* Media query for mobile devices from 767px and down where there is a switch to single column */
-/* Increases height to value 50% of viewport width */
-@media only screen and (max-width: 767px) {
-  .img-size-consistent {
-    height: 50vw;
-  }
-}
-/* Media query for mobile devices from 575px and down */
-/* Increases height to value 70% of viewport width */
-@media only screen and (max-width: 575px) {
-  .img-size-consistent {
-    height: 70vw;
-  }
-}
-/* Clickable images and cards */
-.image-clickable {
-  transition: all 0.15s ease;
-}
-
-.image-clickable:hover {
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-/* Planner */
-.opaque-image {
-  opacity: 0.5;
-}
-
-.planner-image-link .image-clickable:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.accordion-body {
-  background-color: var(--bs-secondary);
-}
-
-.planner-heading {
-  letter-spacing: 2px;
-}
-
-/* Maps */
-#map {
-  height: 600px;
-}
-
-/* Adresses */
-.place-address ul {
-  padding: 0;
-}
-
-/* Reviews */
-.review-card-text {
-  margin: 0;
-}
-
-/* Destination Modal */
-/* Media query for mobile devices from 991px and down. Destination modal title switches to flex column */
-@media only screen and (max-width: 767px) {
-  .destination-title {
-    flex-direction: column;
-  }
-}
-/* Utility Media Queries */
-/* Media query for mobile devices from 1199px and down switches to flex column */
-@media only screen and (max-width: 1199px) {
-  .action-title {
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 1rem;
-    gap: 1rem;
-  }
-}
-/* Media query for medium devices and above.  Reduces width to 75% and centers using margin auto */
-@media only screen and (min-width: 768px) {
-  .medium-w-75 {
-    width: 75%;
-    margin: auto;
-  }
-}
-/* Change Autocomplete styles in Chrome */
-/* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: none;
-  -webkit-text-fill-color: var(--bs-dark);
-  -webkit-box-shadow: none;
-  transition: background-color 5000s ease-in-out 0s;
+.approval {
+  color: rgb(222, 146, 168);
 }
